@@ -1,0 +1,12 @@
+df=pd.read_csv('train.csv')
+sns.catplot(x='sex',hue='survived',kind='count',data=df)
+#2
+df1=df.groupby(['pclass','survived'])
+pclass_survived=df1.size().unstack()
+sns.heatmap(pclass_survived,annot=True,fmt='d')
+#3
+df['fare_range']=pd.qcut(df['fare'],4)
+sns.barplot(x='fare_range',y='survived',data=df)
+#4
+sns.catplot(x='embarked',hue='survived',kind='count',col='pclass',data=df)
+#5
