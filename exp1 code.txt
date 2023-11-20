@@ -1,0 +1,12 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df=pd.DataFrame(np.random.randint(low=0,high=30,size=(5,2),dtype=int),columns=['commercials_watched','products_purchased'])
+df.describe()
+df.var()
+df.cov()
+df.corr()
+plt.scatter(x='commercials_watched',y='products_purchased',data=df,color='blue')
+plt.xlabel('commercials_watched')
+plt.ylabel('products_purchased')
+df.agg(['mean','std'])
