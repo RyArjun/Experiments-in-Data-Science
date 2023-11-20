@@ -1,0 +1,32 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+import statistics
+test=np.random.randint(30,70,1000)
+mean=statistics.mean(test)
+median=statistics.median(test)
+SD=np.std(test)
+size=10000
+values=np.random.normal(mean,SD)
+plt.hist(values,100)
+plt.axvline(values.np.mean(),color='b',linestyle="--",linewidth=2)
+plt.show()
+#clt
+roll=np.random.randint(1,6,100)
+means=[np.mean(np.random.randint(1,6,100)) for _ in range(1000)]
+plt.hist(means)
+plt.show()
+np.mean(means)
+import seaborn as sns
+sns.displot(data=means,kind='kde')
+#correlation
+import sklearn
+np.random.seed(100)
+x=np.random.randint(0,10,50)
+np.corrcoef(x,x)
+y=x+np.random.randint(0,10,50)
+np.corrcoef(x,y)
+plt.scatter(x,y)
+sns.heatmap(np.corrcoef(x,y),annot=True)
