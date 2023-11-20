@@ -1,0 +1,24 @@
+df=pd.read_csv('iris.csv')
+df.head()
+#histogram
+#plt.hist(df['sepal.length'])
+df['sepal.length'].plot(kind='hist')
+plt.show()
+plt.scatter(data=df,x='sepal.length',y='sepal.width')
+sns.scatterplot(data=df)
+sns.jointplot(x='sepal.length',y='sepal.width',data=df,size=5)
+sns.boxplot(x='variety',y='petal.length',palette='husl',data=df)
+#facetgrid
+sns.FacetGrid(data=df,hue='variety',palette='husl',height=5)\
+.map(sns.kdeplot,'petal.length')\
+.add_legend()
+#pairplot
+sns.pairplot(hue='variety',size=3,data=df)
+from pandas.plotting import parallel_coordinates
+parallel_coordinates(df,'variety',colormap='rainbow')
+from pandas.plotting import andrews_curves
+andrews_curves(df,'variety',colormap='rainbow')
+#facegrid
+sns.FacetGrid(data=df,hue='variety',palette='husl',height=5)\
+.map(sns.kdeplot,'petal.length')\
+.add_legend()
