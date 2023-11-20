@@ -1,0 +1,43 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve
+from sklearn.tree import plot_tree
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn.metrics import confusion_matrix 
+from sklearn.metrics import classification_report 
+df=pd.read_csv("iris.csv")
+df.head()
+sns.boxplot(y=df['sepal.length'])
+sns.boxplot(y=df['petal.length']
+sns.boxplot(y=df['petal.width'])
+q1=df['sepal.width'].quantile(q=0.25)
+q3=df['sepal.width'].quantile(q=0.75)
+iqr=q3-q1
+df = df[(df['sepal.width'] >= q1-1.5*iqr) & (df['sepal.width'] <= q3+1.5*iqr)]
+inputs=df.drop('variety',axis=1)
+output=df['variety']
+model = tree.DecisionTreeClassifier()
+x_train,x_test,y_train,y_test=train_test_split(inputs,output,train_size=0.33,random_state=1)
+model.fit(inputs,output)
+from sklearn.tree import plot_tree
+model= DecisionTreeClassifier().fit(inputs,output)
+plot_tree(model, filled=True)
+plt.title("Decision tree trained on all the iris features")
+plt.show()
+model.score(inputs,output)
+model =DecisionTreeClassifier()
+model.fit(x_train, y_train)
+model.score(x_test, y_test)
+model = DecisionTreeClassifier(random_state=1)
+model.fit(x_train, y_train)
+
+y_pred_train = model.predict(x_train)
+y_pred = model.predict(x_test)
+y_prob = model.predict_proba(x_test)
+confusion_matrix(y_train,y_pred_train)
+confusion_matrix(y_test,y_pred)
+accuracy_score(y_pred_train,y_train)
