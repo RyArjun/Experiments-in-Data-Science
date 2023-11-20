@@ -1,0 +1,16 @@
+from sklearn.cluster import DBSCAN
+from matplotlib import pyplot as plt
+import numpy as np
+import warnings 
+warnings.filterwarnings("ignore")
+X = np.array([[1, 2], [3,4], [4,3], [8, 7], [7, 8], [25, 80]])
+X
+plt.scatter(X[:,0], X[:,1])
+clustering = DBSCAN(eps=3, min_samples=2)
+clustering.fit_predict(X)
+clustering.labels_
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=2, random_state=0).fit(X)
+kmeans.labels_
+kmeans.cluster_centers_
+kmeans.predict([[24,81], [23,85]])
