@@ -1,0 +1,11 @@
+predicted = km.fit_predict(df)
+predicted
+sns.lmplot(x='Income',y='Spendings',fit_reg=False,data=df,hue='cluster')
+sse = []
+for k in range(1,10):
+    km = KMeans(n_clusters=k)
+    km.fit(df)
+    sse.append(km.inertia_)
+plt.xlabel('K')
+plt.ylabel('Sum of squared error')
+plt.plot(range(1,10),sse)
